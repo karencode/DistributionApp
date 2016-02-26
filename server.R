@@ -48,8 +48,8 @@ shinyServer(function(input, output) {
       p<- p + stat_function(fun=shade_end(dnorm,abs(input$testStat),"upper"),geom="area",fill="blue",alpha=0.2)
       p<-p + stat_function(fun=shade_end(dnorm,-abs(input$testStat),"lower"),geom="area",fill="blue",alpha=0.2)
       p <- p + annotate("segment",x=-input$testStat,xend=-input$testStat,y=0,yend=dnorm(input$testStat))  
-      p<-p + annotate("text",x=abs(input$testStat),y=-.01,label=paste("|z*| =",round(abs(input$testStat),2)))
-      p<-p + annotate("text",x=-abs(input$testStat),y=-.01,label=paste("|z*| =",round(-abs(input$testStat),2)))
+      p<-p + annotate("text",x=abs(input$testStat),y=-.01,label=paste("z* =",round(abs(input$testStat),2)))
+      p<-p + annotate("text",x=-abs(input$testStat),y=-.01,label=paste("z* =",round(-abs(input$testStat),2)))
     }
     else {
       p<-p + stat_function(fun=dnorm) + stat_function(fun=shade_end(dnorm,input$testStat,input$numTails),geom="area",fill="blue",alpha=0.2)
